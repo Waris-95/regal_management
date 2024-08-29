@@ -1,42 +1,48 @@
 "use client";
+
 import { useAppDispatch, useAppSelector } from "@/app/redux";
-import { setIsSidebarCollapsed } from "@/app/state";
+import { setIsDarkMode, setIsSidebarCollapsed } from "@/app/state";
 import { Bell, Menu, Moon, Settings, Sun, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const Navbar = () => {
-
   const dispatch = useAppDispatch();
   const isSidebarCollapsed = useAppSelector(
-    (state) => state.global.isSidebarCollapsed);
+    (state) => state.global.isSidebarCollapsed
+  );
 
-    const toggleSidebar = () => {
-      dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
-    }
+  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+
+  const toggleSidebar = () => {
+    dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
+  };
+
+  const toggleDarkMode = () => {
+    // Dark mode toggle logic goes here
+    dispatch(setIsDarkMode(!isDarkMode))
+  };
 
   return (
-    <div className="flex justify-between items-center w-full mb-7">
+    <div className="flex justify-between items-center w-full mb-7 p-4 bg-gradient-to-r from-white to-gray-100 shadow-md rounded-lg">
       {/* LEFT SIDE */}
       <div className="flex justify-between items-center gap-5">
         <button
-          className="px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100"
+          className="p-3 bg-gray-100 rounded-full hover:bg-blue-200 transition-all duration-300 transform hover:rotate-180 hover:scale-105 shadow-md"
           onClick={toggleSidebar}
           aria-label="Toggle Sidebar"
         >
-          <Menu className="w-4 h-4" />
+          <Menu className="w-5 h-5 text-gray-600" />
         </button>
 
         <div className="relative">
           <input
             type="search"
             placeholder="Search products"
-            className="pl-10 pr-4 py-2 w-50 md:w-60 border-2 border-gray-300 bg-white rounded-lg focus:outline-none focus:border-blue-500"
+            className="pl-10 pr-4 py-2 w-50 md:w-60 border-2 border-gray-300 bg-white rounded-full focus:outline-none focus:border-blue-500 shadow-lg transition-all duration-300"
           />
-
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search className="text-gray-500" size={20} />
+            <Search className="text-gray-400" size={20} />
           </div>
         </div>
       </div>
@@ -45,31 +51,43 @@ const Navbar = () => {
       <div className="flex justify-between items-center gap-5">
         <div className="hidden md:flex justify-between items-center gap-5">
           <div>
-            <button onClick={() => {}} aria-label="Toggle Dark Mode">
-              {/* Add your dark mode toggle logic here */}
-              <Sun className="cursor-pointer text-gray-500" size={24} />
+            <button
+              onClick={toggleDarkMode}
+              aria-label="Toggle Dark Mode"
+              className="p-2 bg-gray-200 rounded-full hover:bg-yellow-200 transition-all duration-300 transform hover:scale-110 shadow-md"
+            >
+              {isDarkMode ? (
+                <Moon className="cursor-pointer text-gray-600" size={24} />
+              ) : (
+                <Sun className="cursor-pointer text-yellow-500" size={24} />
+              )}
             </button>
           </div>
+
           <div className="relative">
-            <Bell className="cursor-pointer text-gray-500" size={24} />
-            <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-[0.4rem] py-1 text-xs font-semibold leading-none text-red-100 bg-red-400 rounded-full">
+            <Bell className="cursor-pointer text-gray-500 hover:text-blue-500 transition-colors duration-300" size={24} />
+            <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-[0.4rem] py-1 text-xs font-semibold leading-none text-red-100 bg-red-500 rounded-full animate-pulse shadow-md">
               9+
             </span>
           </div>
+
           <hr className="w-0 h-7 border border-solid border-l border-gray-300 mx-3" />
-          <div className="flex items-center gap-3 cursor-pointer">
+
+          <div className="flex items-center gap-3 cursor-pointer group">
             <Image
               src="https://c.tenor.com/Cgqv0BKaWgEAAAAC/nft.gif"
               alt="Profile"
               width={50}
               height={50}
-              className="rounded-full h-full object-cover"
+              className="rounded-full h-full object-cover shadow-md transition-transform duration-300 transform group-hover:scale-110"
             />
-            <span className="font-semibold">Dully</span>
+            <span className="font-semibold text-gray-800 transition-colors duration-300 group-hover:text-blue-500">
+              Dully
+            </span>
           </div>
         </div>
         <Link href="/settings">
-          <Settings className="cursor-pointer text-gray-500" size={24} />
+          <Settings className="cursor-pointer text-gray-500 hover:text-blue-500 transition-all duration-300 transform hover:scale-110" size={24} />
         </Link>
       </div>
     </div>
