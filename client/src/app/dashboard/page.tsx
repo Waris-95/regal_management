@@ -1,6 +1,6 @@
 "use client"
 
-import CardPopularProducts from "./PopularProducts"
+import CardPopularProducts from "./cardPopularProducts"
 
 const Dashboard = () => {
   return (
