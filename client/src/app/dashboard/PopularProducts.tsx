@@ -1,6 +1,6 @@
 import { useGetDashboardMetricsQuery } from '../state/api';
 
-const PopularProducts = () => {
+const CardPopularProducts = () => {
   const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
 
   return (
@@ -18,8 +18,7 @@ const PopularProducts = () => {
               <div
                 key={product.productId}
                 className="flex items-center justify-between gap-3 px-5 py-7 border-b"
-              >
-                <div>
+              ><div>
 
                 </div>
               </div>
@@ -31,4 +30,4 @@ const PopularProducts = () => {
   );
 };
 
-export default PopularProducts;
+export default CardPopularProducts;
