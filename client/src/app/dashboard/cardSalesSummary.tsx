@@ -14,7 +14,7 @@ import {
 const CardSalesSummary = () => {
   const { data, isLoading, isError } = useGetDashboardMetricsQuery();
 
-  console.log(data)
+  // console.log(data);
 
   const salesData = data?.salesSummary || [];
 
@@ -44,14 +44,14 @@ const CardSalesSummary = () => {
   }
 
   return (
-    <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl flex flex-col justify-between">
+    <div className="row-span-3 xl:row-span-6 bg-gradient-to-br from-white via-blue-50 to-gray-100 shadow-lg rounded-2xl flex flex-col justify-between transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl">
       {isLoading ? (
-        <div className="m-5">Loading...</div>
+        <div className="m-5 animate-pulse">Loading...</div>
       ) : (
         <>
           {/* HEADER */}
           <div>
-            <h2 className="text-lg font-semibold mb-2 px-7 pt-5">
+            <h2 className="text-lg font-semibold mb-2 px-7 pt-5 transition-colors duration-500 ease-in-out hover:text-blue-600">
               Sales Summary
             </h2>
             <hr />
@@ -76,7 +76,7 @@ const CardSalesSummary = () => {
                 </span>
               </div>
               <select
-                className="shadow-sm border border-gray-300 bg-white p-2 rounded"
+                className="shadow-sm border border-gray-300 bg-white p-2 rounded transition duration-300 ease-in-out hover:border-blue-400"
                 value={timeframe}
                 onChange={(e) => {
                   setTimeframe(e.target.value);
@@ -93,7 +93,7 @@ const CardSalesSummary = () => {
                 data={salesData}
                 margin={{ top: 0, right: 0, left: -25, bottom: 0 }}
               >
-                <CartesianGrid strokeDasharray="" vertical={false} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis
                   dataKey="date"
                   tickFormatter={(value) => {
