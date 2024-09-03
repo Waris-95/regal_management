@@ -7,15 +7,13 @@ import Image from "next/image";
 const CardPopularProducts = () => {
   const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
 
-  console.log('Fetched Data:', dashboardMetrics); // Debugging log
-
   return (
-    <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl pb-16">
+    <div className="row-span-3 xl:row-span-6 bg-gradient-to-br from-white via-blue-50 to-gray-100 shadow-lg rounded-2xl pb-16 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl">
       {isLoading ? (
-        <div className="m-5">Loading...</div>
+        <div className="m-5 animate-pulse">Loading...</div>
       ) : (
         <>
-          <h3 className="text-lg font-semibold px-7 pt-5 pb-2">
+          <h3 className="text-lg font-semibold px-7 pt-5 pb-2 transition-colors duration-500 ease-in-out hover:text-blue-600">
             Popular Products
           </h3>
           <hr />
@@ -23,24 +21,24 @@ const CardPopularProducts = () => {
             {dashboardMetrics?.popularProducts.map((product) => (
               <div
                 key={product.productId}
-                className="flex items-center justify-between gap-3 px-5 py-7 border-b"
+                className="flex items-center justify-between gap-3 px-5 py-7 border-b border-gray-200 transition-colors duration-300 hover:bg-blue-50"
               >
                 <div className="flex items-center gap-3">
                   <Image
-                    src={`https://s3-inventorymanagement.s3.us-east-2.amazonaws.com/product${
+                    src={`https://bananarepublicfactory.gapfactory.com/webcontent/0029/703/835/cn29703835.${
                       Math.floor(Math.random() * 3) + 1
-                    }.png`}
+                    }.p`}
                     alt={product.name}
                     width={48}
                     height={48}
-                    className="rounded-lg w-14 h-14"
+                    className="rounded-lg w-14 h-14 transform transition-transform duration-300 hover:scale-110"
                   />
                   <div className="flex flex-col justify-between gap-1">
                     <div className="font-bold text-gray-700">
                       {product.name}
                     </div>
                     <div className="flex text-sm items-center">
-                      <span className="font-bold text-blue-500 text-xs">
+                      <span className="font-bold text-blue-500 text-xs transition-colors duration-300 ease-in-out hover:text-blue-700">
                         ${product.price}
                       </span>
                       <span className="mx-2">|</span>
@@ -50,12 +48,12 @@ const CardPopularProducts = () => {
                 </div>
 
                 <div className="text-xs flex items-center">
-                <button
-                  className="p-2 rounded-full bg-blue-100 text-blue-600 mr-2"
-                  aria-label="Add to Shopping Bag" // Add accessible label for screen readers
-                >
-                  <ShoppingBag className="w-4 h-4" />
-                </button>
+                  <button
+                    className="p-2 rounded-full bg-blue-100 text-blue-600 mr-2 transform transition-transform duration-300 hover:scale-125 hover:bg-blue-200"
+                    aria-label="Add to Shopping Bag"
+                  >
+                    <ShoppingBag className="w-4 h-4" />
+                  </button>
                   {Math.round(product.stockQuantity / 1000)}k Sold
                 </div>
               </div>
