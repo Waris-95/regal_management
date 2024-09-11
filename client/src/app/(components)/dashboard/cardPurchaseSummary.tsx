@@ -37,7 +37,7 @@ const CardPurchaseSummary = () => {
     : 0;
 
   return (
-    <div className="flex flex-col justify-between row-span-2 xl:row-span-3 col-span-1 md:col-span-2 xl:col-span-1 bg-gradient-to-br from-white via-black-50 to-gray-100 shadow-lg rounded-2xl transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl">
+    <div className="flex flex-col justify-between row-span-2 xl:row-span-3 col-span-1 md:col-span-2 xl:col-span-1 bg-gradient-to-br from-white via-blue-50 to-gray-100 shadow-lg rounded-2xl transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-2xl">
       {isLoading ? (
         <div className="m-5 animate-pulse">Loading...</div>
       ) : (
