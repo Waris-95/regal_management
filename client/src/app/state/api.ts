@@ -68,7 +68,7 @@ export const api = createApi({
     getProducts: build.query<Product[], string | void>({
       query: (search) => ({
         url: "/products",
-        params: search ? { search } : {},
+        params: search ? { search } : {},     
       }),
       providesTags: ["Products"],
     }),
@@ -78,7 +78,7 @@ export const api = createApi({
         method: "POST",
         body: newProduct,
       }),
-      invalidatesTags: ["Products"],
+      invalidatesTags: ["Products"], // updates the list of products
     }),
     getUsers: build.query<User[], void>({
       query: () => "/users",
