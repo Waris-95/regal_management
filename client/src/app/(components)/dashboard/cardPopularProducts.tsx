@@ -25,9 +25,9 @@ const CardPopularProducts = () => {
               >
                 <div className="flex items-center gap-3">
                   <Image
-                    src={`https://bananarepublicfactory.gapfactory.com/webcontent/0029/703/835/cn29703835.${
+                    src={`https://image.josbank.com/is/image/JosBank/3WAT_76_1905_NAVY_BRIGHT_NAVY_MAIN?$JABPDPSharpen$&hei=1080&wid=800&align=0,-1${
                       Math.floor(Math.random() * 3) + 1
-                    }.p`}
+                    }`}
                     alt={product.name}
                     width={48}
                     height={48}

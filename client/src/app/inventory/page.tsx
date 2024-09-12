@@ -2,6 +2,7 @@
 import { useGetProductsQuery } from "../state/api"
 import Header from "../(components)/Header/index";
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const columns: GridColDef[] = [
   { field: "productId", headerName: "ID", width: 90 },
@@ -48,7 +49,7 @@ const Inventory = () => {
       columns={columns}
       getRowId={(row) => row.productId}
       checkboxSelection
-      className="!text-gray-700 bg-gradient-to-br from-white via-blue-100 to-blue-100"
+      className="!text-gray-700 bg-gradient-to-br from-transparent via-blue-200 to-black-100"
      />
     </div>
   )
