@@ -1,6 +1,6 @@
 "use client"
 import { useGetProductsQuery } from "../state/api"
-import Header from "../(components)/Header";
+import Header from "../(components)/Header/index";
 import { DataGrid, GridColDef } from "@mui/x-data-grid"
 
 const columns: GridColDef[] = [
@@ -48,7 +48,7 @@ const Inventory = () => {
       columns={columns}
       getRowId={(row) => row.productId}
       checkboxSelection
-      className="bg-white shadow rounded-lg border border-gray-200 mt-5 !text-gray-700"
+      className="!text-gray-700 bg-gradient-to-br from-white via-blue-100 to-blue-100"
      />
     </div>
   )
