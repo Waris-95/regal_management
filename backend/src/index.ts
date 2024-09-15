@@ -21,7 +21,7 @@ app.use(cors());
 
 // rouers here
 app.use('/dashboard', dashboardRoutes); // http://localhost:8000/dashboard
-app.use('/products', productRoutes); // http://localhost:8000/product
+app.use('/products', productRoutes); // http://localhost:8000/products
 app.use('/users', userRoutes); // http://localhost:8000/users
 
 // port server

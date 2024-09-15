@@ -84,7 +84,7 @@ const Sidebar = () => {
       >
         <div className="transform transition-transform duration-500 hover:rotate-12">
           <Image
-            src="https://icon-library.com/images/inventory-icon-png/inventory-icon-png-11.jpg"
+            src="https://icon-library.com/images/admin-icon-png/admin-icon-png-17.jpg"
             alt="Logo"
             width={40}
             height={40}
@@ -94,7 +94,7 @@ const Sidebar = () => {
         <h1
           className={`${
             isSidebarCollapsed ? "hidden" : "block"
-          } font-extrabold text-2xl text-gray-800 transition-opacity duration-500 ease-in-out`}
+          } font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500 ease-in-out hover:text-white hover:scale-105`}
         >
           STOCKR
         </h1>

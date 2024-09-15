@@ -12,12 +12,15 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   useEffect(() => {
+    // Update the class on the <html> element only when isDarkMode changes
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
     } else {
       document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
     }
-  });
+  }, [isDarkMode]); // Dependency array ensures this runs only when isDarkMode changes
 
   return (
     <div
